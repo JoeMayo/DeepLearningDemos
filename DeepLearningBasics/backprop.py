@@ -36,7 +36,7 @@ def forward_propagate(X, parameters):
     
     return A2, cache
 
-def compute_cost(A2, Y, parameters):
+def compute_cost(A2, Y):
     # cross entropy
     logprobs = (Y * np.log(A2)) + ((1-Y) * np.log(1-A2))
     cost = -np.average(logprobs)

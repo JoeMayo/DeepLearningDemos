@@ -24,7 +24,6 @@ def train():
     n_y = Y.shape[0]
 
     num_iterations = 25000
-    np.random.seed(3)
     
     parameters = backprop.initialize_parameters(n_x, n_h, n_y)
 
@@ -34,11 +33,11 @@ def train():
          
         A2, cache = backprop.forward_propagate(X, parameters)
         
-        cost = backprop.compute_cost(A2, Y, parameters)
+        cost = backprop.compute_cost(A2, Y)
  
         grads = backprop.backward_propagate(parameters, cache, X, Y)
  
-        parameters = backprop.update_parameters(parameters, grads, learning_rate=1.2)
+        parameters = backprop.update_parameters(parameters, grads, learning_rate=1.0)
         
         if i % 1000 == 0:
             print ("Cost after iteration %i: %f" %(i, cost))
